@@ -4,7 +4,7 @@ const MOD_NAME = "otDan-GodotExplorer"
 
 var scene_navigator
 
-func _init(modLoader = ModLoader):
+func _init(_modLoader = ModLoader):
 	ModLoaderUtils.log_info("Init Godot Explorer.", MOD_NAME)
 	
 func _ready():

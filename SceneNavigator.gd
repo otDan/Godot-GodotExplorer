@@ -5,6 +5,8 @@ onready var sceneTree: Tree = $SceneNavigatorCanvas/SceneNavigatorWindow/Tree
 var sceneDisplayerRoot: TreeItem
 var sceneDisplayerDictionary: Dictionary
 
+const MOD_NAME = "otDan-GodotExplorer"
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SceneDisplayerWindow.window_title = "Scene Navigator Tree" #+ str(self.get_instance_id())
@@ -63,9 +65,11 @@ func _node_tree_remove(node: Node):
 		var rootNode: Node = node.get_parent()
 		if rootNode == null:
 			return
-		var parentTreeItem: TreeItem = sceneDisplayerDictionary[rootNode.get_instance_id()]
+		var _parentTreeItem: TreeItem = sceneDisplayerDictionary[rootNode.get_instance_id()]
 		var treeItem: TreeItem = sceneDisplayerDictionary[nodeId]
-		sceneDisplayerDictionary.erase(nodeId)
+		var erased = sceneDisplayerDictionary.erase(nodeId)
+		if (!erased):
+			ModLoaderUtils.log_warning("Tried to remove a node that is not present in the dictionary", MOD_NAME)
 		treeItem.free()
 	
 func _update_node_tree():
@@ -99,7 +103,7 @@ func setup_scene_displayer():
 	sceneDisplayerRoot.set_text(0, "SceneDisplayer")
 	sceneDisplayerDictionary[get_tree().get_root().get_instance_id()] = sceneDisplayerRoot
 	
-func _input(ev):
+func _input(_ev):
 	if Input.is_key_pressed(KEY_K):
 		if !SceneDisplayerWindow.is_visible_in_tree():
 			SceneDisplayerWindow.show()
