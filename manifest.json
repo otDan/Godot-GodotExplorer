@@ -1,5 +1,5 @@
 {
-  "name": "GodotExplorerV1",
+  "name": "GodotExplorer",
   "namespace": "otDan",
   "version_number": "1.0.1",
   "description": "Allows you to inspect the current godot scene tree",
@@ -9,7 +9,7 @@
     "godot": {
       "incompatibilities": [],
       "authors": ["otDan"],
-      "compatible_mod_loader_version": "3.1.0",
+      "compatible_mod_loader_version": "4.0.0",
       "compatible_game_version": ["0.6.1.6"],
       "config_defaults": {}
     }
