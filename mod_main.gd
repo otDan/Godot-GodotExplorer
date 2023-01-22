@@ -2,7 +2,7 @@ extends Node
 
 const MOD_NAME = "otDan-GodotExplorer"
 
-var scene_navigator
+#var scene_navigator
 
 func _init(_modLoader = ModLoader):
 	ModLoaderUtils.log_info("Init Godot Explorer.", MOD_NAME)
@@ -14,4 +14,4 @@ func _ready():
 	var scene_navigator_instance = load(scene_navigator_path).instance()
 	get_tree().root.call_deferred("add_child", scene_navigator_instance)
 
-	ModLoaderUtils.log_info("Attached scene viewer to root", MOD_NAME)
+	ModLoaderUtils.log_success("Attached scene viewer to root", MOD_NAME)

@@ -23,25 +23,27 @@ margin_right = 200.0
 margin_bottom = 300.0
 resizable = true
 
-[node name="Tree" type="Tree" parent="SceneNavigatorCanvas/SceneNavigatorWindow"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SceneNavigatorCanvas/SceneNavigatorWindow"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+
+[node name="Tree" type="Tree" parent="SceneNavigatorCanvas/SceneNavigatorWindow/VBoxContainer"]
+margin_right = 400.0
+margin_bottom = 572.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 columns = 3
 allow_rmb_select = true
 hide_root = true
 select_mode = 1
 
-[node name="SearchNode" type="LineEdit" parent="SceneNavigatorCanvas/SceneNavigatorWindow/Tree"]
-anchor_top = 0.939
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 5.0
-margin_top = 5.0
-margin_right = -5.0
-margin_bottom = -5.0
+[node name="SearchNode" type="LineEdit" parent="SceneNavigatorCanvas/SceneNavigatorWindow/VBoxContainer"]
+margin_top = 576.0
+margin_right = 400.0
+margin_bottom = 600.0
 hint_tooltip = "Search Through Scene Nodes"
 align = 3
 placeholder_text = "Type Node Name..."
 caret_blink = true
 
-[connection signal="text_changed" from="SceneNavigatorCanvas/SceneNavigatorWindow/Tree/SearchNode" to="." method="_on_SearchNode_text_changed"]
+[connection signal="text_changed" from="SceneNavigatorCanvas/SceneNavigatorWindow/VBoxContainer/SearchNode" to="." method="_on_SearchNode_text_changed"]

@@ -3,7 +3,7 @@
   "namespace": "otDan",
   "version_number": "1.0.2",
   "description": "Allows you to inspect the current godot scene tree",
-  "website_url": "https://github.com/GodotModding",
+  "website_url": "https://github.com/otDan/GodotExplorer",
   "dependencies": [],
   "extra": {
     "godot": {

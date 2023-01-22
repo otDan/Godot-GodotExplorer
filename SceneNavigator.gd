@@ -1,7 +1,7 @@
 extends Control
 
 onready var SceneDisplayerWindow: WindowDialog = $SceneNavigatorCanvas/SceneNavigatorWindow
-onready var sceneTree: Tree = $SceneNavigatorCanvas/SceneNavigatorWindow/Tree
+onready var sceneTree: Tree = $SceneNavigatorCanvas/SceneNavigatorWindow/VBoxContainer/Tree
 var sceneDisplayerRoot: TreeItem
 var sceneDisplayerDictionary: Dictionary
 
@@ -103,8 +103,8 @@ func setup_scene_displayer():
 	sceneDisplayerRoot.set_text(0, "SceneDisplayer")
 	sceneDisplayerDictionary[get_tree().get_root().get_instance_id()] = sceneDisplayerRoot
 	
-func _input(_ev):
-	if Input.is_key_pressed(KEY_K):
+func _unhandled_input(_ev):
+	if Input.is_key_pressed(KEY_F10):
 		if !SceneDisplayerWindow.is_visible_in_tree():
 			SceneDisplayerWindow.show()
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
